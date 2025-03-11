@@ -14,14 +14,17 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.navigation.NavController
 import components.ActionButton
+import components.MainButton
+import components.Spacers
 import components.TitleView
 
 
 @SuppressLint("UnusedMaterial3ScaffoldPaddingParameter")
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun HomeView() {
+fun HomeView(navController: NavController) {
     Scaffold (
         topBar = {
             CenterAlignedTopAppBar(
@@ -37,12 +40,12 @@ fun HomeView() {
         }
     )
     {
-        ContentView()
+        ContentView(navController)
     }
 }
 
 @Composable
-private fun ContentView() {
+private fun ContentView(navController: NavController) {
     Column(
         modifier = Modifier.fillMaxSize(),
         verticalArrangement = Arrangement.Center,
@@ -52,7 +55,8 @@ private fun ContentView() {
         TitleView("Home")
         Spacers()
         MainButton("Generico",Color.Red,Color.White){
-            Log.d("","Soy un boton generico")
+            navController.navigate("Detail")
+           // Log.d("","Soy un boton generico")
         }
     }
 }

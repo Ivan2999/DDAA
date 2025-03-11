@@ -7,6 +7,7 @@ import androidx.activity.enableEdgeToEdge
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.tooling.preview.Preview
 import com.example.ejemplo1b.ui.theme.Ejemplo1BTheme
+import navigation.NavManager
 import views.HomeView
 
 class MainActivity : ComponentActivity() {
@@ -24,8 +25,6 @@ class MainActivity : ComponentActivity() {
 @Preview(showBackground = true)
 @Composable
 fun GreetingPreview() {
-    Ejemplo1BTheme {
-       HomeView()
+       NavManager()
 
     }
-}
